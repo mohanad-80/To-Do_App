@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+
+<div class="tasks container">
+  <div class="date">
+    <% const d = new Date(); %>
+    <p><%= d.getDate() %> - <%= d.getMonth() + 1 %> - <%= d.getFullYear() %></p>
+  </div>
+  <div class="tasks-list">
+    <form action="/" class="tasks-box">
+      <% if(locals.theTasks.length) {%>
+        <% for (let I = 0; I < theTasks.length; I++) {%>
+          <div class="task">
+            <input type="checkbox" name="checkbox" id="<%= I %>" class="checkbox">
+            <label for="checkbox" class="task-content<%= I %>"> <%= theTasks[I]; %> </label><br>
+          </div>
+        <% } %>
+      <% }else{ %>
+        <div class="task">
+          <p class="no-tasks">no tasks yet...</p><br>
+        </div>
+      <% } %>
+    </form>
+
+    <div class="add-task-bar">
+      <form action="/" method="POST">
+        <input type="text" id="new-task" class="new-task-bar" name="new-task" placeholder="Add a new task..">
+        <button type="submit" class="adding-btn">+</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="delete-all">
+    <form action="/delete-today" method="post">
+      <button class="delete-all-btn">Delete All</button>
+    </form>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
