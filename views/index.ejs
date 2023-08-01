@@ -6,11 +6,12 @@
     <p><%= d.getDate() %> - <%= d.getMonth() + 1 %> - <%= d.getFullYear() %></p>
   </div>
   <div class="tasks-list">
-    <form action="/" class="tasks-box">
+    <form action="/today-list" method="POST" class="tasks-box">
       <% if(locals.theTasks.length) {%>
         <% for (let I = 0; I < theTasks.length; I++) {%>
           <div class="task">
-            <input type="checkbox" name="checkbox" id="<%= I %>" class="checkbox">
+            <!-- <input type="checkbox" name="checkbox" value="<%= I %>" id="<%= I %>" class="checkbox"> -->
+            <button name="checkbox" value="<%= I %>" id="<%= I %>" class="checkbox" type="submit">✔</button>
             <label for="checkbox" class="task-content<%= I %>"> <%= theTasks[I]; %> </label><br>
           </div>
         <% } %>

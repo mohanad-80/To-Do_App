@@ -6,11 +6,12 @@
     <p>Work Tasks</p>
   </div>
   <div class="tasks-list">
-    <form action="/work" class="tasks-box">
+    <form action="/work-list" method="POST" class="tasks-box">
       <% if(locals.theWorkTasks.length) {%>
         <% for (let I = 0; I < theWorkTasks.length; I++) {%>
           <div class="task">
-            <input type="checkbox" name="checkbox" id="<%= I %>" class="checkbox">
+            <!-- <input type="checkbox" name="checkbox" value="<%= I %>" id="<%= I %>" class="checkbox"> -->
+            <button name="checkbox" value="<%= I %>" id="<%= I %>" class="checkbox" type="submit">✔</button>
             <label for="checkbox" class="task-content<%= I %>"> <%= theWorkTasks[I]; %> </label><br>
           </div>
         <% } %>

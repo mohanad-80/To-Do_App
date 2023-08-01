@@ -4,7 +4,7 @@ body {
   font-family: 'PT Sans', sans-serif;
 }
 
-/* header section */
+/* ########## header section ########## */
 .header {
   height: 60px;
   margin: 0;
@@ -53,7 +53,7 @@ h1 {
 }
 
 
-/* body section */
+/* ############## body section ############## */
 .container {
   min-height: 78vh;
   display: flex;
@@ -101,9 +101,22 @@ h1 {
 }
 
 .checkbox {
-  /* height: 20px; */
-  margin-left: 10px;
-  /* border-radius: 50%; */
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  /* margin-left: 10px; */
+  margin-top: 2px;
+  /* padding-top: 3px; */
+  padding: 0;
+  border: 1px solid #213555;
+  border-radius: 50%;
+  transition-duration: 0.4s;
+  color: white;
+}
+
+.checkbox:hover {
+  background-color: #4F709C; /* Green */
+  color: white;
 }
 
 .check-pressed {
@@ -152,9 +165,15 @@ hr {
   border: none;
   border-radius: 20px;
   margin-bottom: 10px;
+  transition-duration: 0.4s;
 }
 
-/* footer section */
+.delete-all-btn:hover {
+  background-color: red;
+  color: white;
+}
+
+/* ########## footer section ########## */
 .footer {
   clear: both;
   text-align: center;

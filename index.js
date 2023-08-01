@@ -43,6 +43,20 @@ app.post("/delete-work", (req, res) => {
   res.render("work.ejs", { theWorkTasks: workTasks });
 });
 
+app.post("/today-list", (req, res) => {
+  let idx = req.body.checkbox;
+  todayTasks.splice(idx, 1);
+  res.render("index.ejs", { theTasks: todayTasks });
+  // console.log(req.body);
+});
+
+app.post("/work-list", (req, res) => {
+  let idx = req.body.checkbox;
+  workTasks.splice(idx, 1);
+  res.render("work.ejs", { theWorkTasks: workTasks });
+  // console.log(req.body);
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
