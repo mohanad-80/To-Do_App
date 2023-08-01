@@ -22,7 +22,7 @@ app.post("/", (req, res) => {
     todayTasks.push(req.body["new-task"]);
   }
   res.render("index.ejs", { theTasks: todayTasks });
-  console.log(todayTasks);
+  // console.log(todayTasks);
 });
 
 app.post("/work", (req, res) => {
@@ -30,7 +30,7 @@ app.post("/work", (req, res) => {
     workTasks.push(req.body["new-task"]);
   }
   res.render("work.ejs", { theWorkTasks: workTasks });
-  console.log(workTasks);
+  // console.log(workTasks);
 });
 
 app.post("/delete-today", (req, res) => {
