@@ -88,13 +88,9 @@ h1 {
 
 .task {
   background-color: #DBE2F8;
-  width: 86%;
-  /* height: 30px; */
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  width: 87%;
   border-radius: 10px;
+  padding: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 10px;
@@ -102,21 +98,10 @@ h1 {
 
 .checkbox {
   background-color: white;
-  height: 20px;
-  width: 20px;
-  /* margin-left: 10px; */
-  margin-top: 2px;
-  /* padding-top: 3px; */
-  padding: 0;
+  height: 17px;
+  width: 17px;
   border: 1px solid #213555;
   border-radius: 50%;
-  transition-duration: 0.4s;
-  color: white;
-}
-
-.checkbox:hover {
-  background-color: #4F709C; /* Green */
-  color: white;
 }
 
 .check-pressed {
