@@ -1,13 +1,24 @@
 import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
+import 'dotenv/config'
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-mongoose.connect("mongodb+srv://honda:f1WF0dKYNUkUIx9p@cluster0.egerqdk.mongodb.net/todolistDB");
+
+mongoose.set("strictQuery", false);
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URL);
+    console.log(`MongoDB connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
 
 const itemsSchema = new mongoose.Schema({
   name: String,
@@ -111,12 +122,12 @@ app.post("/delete-work", (req, res) => {
 app.post("/today-list", (req, res) => {
   let id = req.body.checkbox;
   Item.findByIdAndDelete(id)
-  .then(() => {
-    console.log("item deleted succesfully!");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+    .then(() => {
+      console.log("item deleted succesfully!");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   res.redirect("/");
 });
 
@@ -133,6 +144,8 @@ app.post("/work-list", (req, res) => {
   res.redirect("/work");
 });
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
+connectDB().then(() => {
+  app.listen(port, () => {
+    console.log(`listening on port ${port}`);
+  });
 });
